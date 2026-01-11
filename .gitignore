@@ -2,3 +2,7 @@
 *.log
 node_modules/
 .env
+/athyr-brand/
+.beads/
+AGENTS.md
+daemon.lock

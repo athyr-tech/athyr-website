@@ -1,0 +1,69 @@
+/**
+ * Athyr Design Tokens
+ * Brand colors, typography, and spacing from brand guidelines
+ */
+
+:root {
+  /* Brand Colors (from athyr-brand guidelines) */
+  --color-black: #1e1e1e;      /* Primary Black */
+  --color-dark: #0d0d0d;       /* Deep Black (backgrounds) */
+  --color-gray-600: #343a40;   /* Dark Gray */
+  --color-gray-500: #495057;   /* Medium Dark Gray */
+  --color-gray-400: #6c757d;   /* Mid Gray */
+  --color-gray-300: #868e96;   /* Agent Gray */
+  --color-gray-200: #adb5bd;   /* Light Gray */
+  --color-gray-100: #ced4da;   /* Pale Gray */
+  --color-white: #ffffff;
+  --color-accent: #4a9eff;     /* Accent Blue */
+
+  /* Syntax Highlighting */
+  --color-syntax-comment: #495057;
+  --color-syntax-keyword: #c792ea;
+  --color-syntax-string: #c3e88d;
+  --color-syntax-function: #82aaff;
+
+  /* Typography */
+  --font-display: 'Space Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: 0.1em;
+  --letter-spacing-normal: 0.2em;
+  --letter-spacing-wide: 0.3em;
+
+  /* Spacing Scale */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 1rem;     /* 16px */
+  --space-md: 1.5rem;   /* 24px */
+  --space-lg: 2rem;     /* 32px */
+  --space-xl: 4rem;     /* 64px */
+  --space-2xl: 6rem;    /* 96px */
+  --space-3xl: 8rem;    /* 128px */
+
+  /* Border Radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+
+  /* Z-Index Scale */
+  --z-nav: 100;
+  --z-modal: 200;
+  --z-tooltip: 300;
+
+  /* Container Widths */
+  --container-sm: 640px;
+  --container-md: 800px;
+  --container-lg: 1200px;
+  --container-xl: 1400px;
+}

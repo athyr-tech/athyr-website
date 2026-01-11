@@ -1,0 +1,22 @@
+/**
+ * Home Page Styles
+ * Landing page specific styles
+ */
+
+/* Features Section */
+.features {
+  padding: var(--space-3xl) var(--space-xl);
+  max-width: var(--container-lg);
+  margin: 0 auto;
+}
+
+/* Code Section */
+.code-section {
+  padding: var(--space-2xl) var(--space-xl);
+  background: var(--color-black);
+}
+
+.code-container {
+  max-width: var(--container-md);
+  margin: 0 auto;
+}

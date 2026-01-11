@@ -1,0 +1,167 @@
+/**
+ * Athyr Components
+ * Reusable UI components: buttons, cards, code blocks
+ */
+
+/* ========================================
+   Buttons
+   ======================================== */
+.btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+.btn-primary:hover {
+  background: var(--color-gray-100);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--color-gray-600);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-gray-400);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.btn-sm {
+  padding: 0.625rem 1.25rem;
+}
+
+/* ========================================
+   Cards
+   ======================================== */
+.card {
+  background: linear-gradient(135deg, rgba(52, 58, 64, 0.2) 0%, rgba(13, 13, 13, 0.8) 100%);
+  border: 1px solid var(--color-gray-600);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  border-color: var(--color-gray-400);
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--color-gray-600);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.card h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  color: var(--color-gray-300);
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-light);
+  margin-bottom: 0;
+}
+
+/* ========================================
+   Code Blocks
+   ======================================== */
+.code-block {
+  background: var(--color-dark);
+  border: 1px solid var(--color-gray-600);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  overflow-x: auto;
+}
+
+.code-block pre {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--color-gray-200);
+  margin: 0;
+  line-height: 1.7;
+}
+
+.code-block .comment { color: var(--color-syntax-comment); }
+.code-block .keyword { color: var(--color-syntax-keyword); }
+.code-block .string { color: var(--color-syntax-string); }
+.code-block .function { color: var(--color-syntax-function); }
+
+/* ========================================
+   Feature Grid
+   ======================================== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (max-width: 900px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   Logo SVG
+   ======================================== */
+.logo-svg {
+  display: block;
+}
+
+.logo-svg--animated .a-shape {
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.logo-svg--animated .bar1 {
+  animation: slideUp 0.5s ease-out 0.4s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.logo-svg--animated .bar2 {
+  animation: slideUp 0.5s ease-out 0.55s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.logo-svg--animated .bar3 {
+  animation: slideUp 0.5s ease-out 0.7s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.logo-svg--animated .bar4 {
+  animation: slideUp 0.5s ease-out 0.85s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
