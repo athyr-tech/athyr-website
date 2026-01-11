@@ -1,0 +1,23 @@
+- icon: "📦"
+  title: "Single Binary"
+  description: "No external dependencies. Deploy anywhere with a single executable. Zero configuration required."
+
+- icon: "🔌"
+  title: "Language Agnostic"
+  description: "Write agents in any language. Athyr handles orchestration, messaging, and state management."
+
+- icon: "⚡"
+  title: "LLM Gateway"
+  description: "Multi-backend routing with circuit breakers, automatic retry, and failover built in."
+
+- icon: "🧠"
+  title: "Stateless Agents"
+  description: "Agents remain stateless. Athyr manages memory and state externally for true scalability."
+
+- icon: "📡"
+  title: "Agent Registry"
+  description: "Automatic discovery and registration. Agents find each other seamlessly through the runtime."
+
+- icon: "🔒"
+  title: "Edge Ready"
+  description: "Lightweight enough to run on edge devices. Perfect for IoT and distributed deployments."

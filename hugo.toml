@@ -1,0 +1,26 @@
+baseURL = 'https://athyr.tech/'
+languageCode = 'en-us'
+title = 'Athyr'
+
+[params]
+  description = "A lightweight runtime for AI agents as distributed microservices. Single binary. Language agnostic. Agents stay stateless."
+  keywords = "AI agents, distributed systems, microservices, agent orchestration, LLM gateway, multi-agent systems"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menus]
+  [[menus.docs]]
+    name = "Getting Started"
+    weight = 1
+  [[menus.docs]]
+    name = "Core Concepts"
+    weight = 2
+  [[menus.docs]]
+    name = "SDKs"
+    weight = 3
+  [[menus.docs]]
+    name = "Reference"
+    weight = 4

@@ -1,0 +1,44 @@
+{{ define "styles" }}
+<link rel="stylesheet" href="/css/pages/docs.css">
+{{ end }}
+
+{{ define "main" }}
+<div class="docs-layout">
+  <!-- Sidebar -->
+  <aside class="docs-sidebar">
+    <nav class="docs-nav">
+      <div class="docs-nav-section">
+        <h3 class="docs-nav-title">Getting Started</h3>
+        <a href="/docs/"{{ if eq .RelPermalink "/docs/" }} class="active"{{ end }}>Introduction</a>
+        <a href="/docs/installation/">Installation</a>
+        <a href="/docs/quickstart/">Quick Start</a>
+      </div>
+      <div class="docs-nav-section">
+        <h3 class="docs-nav-title">Core Concepts</h3>
+        <a href="/docs/agents/">Agents</a>
+        <a href="/docs/registry/">Agent Registry</a>
+        <a href="/docs/gateway/">LLM Gateway</a>
+        <a href="/docs/state/">State Management</a>
+      </div>
+      <div class="docs-nav-section">
+        <h3 class="docs-nav-title">SDKs</h3>
+        <a href="/docs/sdk-go/">Go SDK</a>
+        <a href="/docs/sdk-python/">Python SDK</a>
+        <a href="/docs/sdk-typescript/">TypeScript SDK</a>
+      </div>
+      <div class="docs-nav-section">
+        <h3 class="docs-nav-title">Reference</h3>
+        <a href="/docs/api/">API Reference</a>
+        <a href="/docs/config/">Configuration</a>
+        <a href="/docs/cli/">CLI Commands</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Content -->
+  <main class="docs-content">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+  </main>
+</div>
+{{ end }}
