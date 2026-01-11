@@ -1,0 +1,21 @@
+{{ define "styles" }}
+<link rel="stylesheet" href="/css/pages/blog.css">
+{{ end }}
+
+{{ define "main" }}
+<div class="blog-layout">
+  <header class="blog-header">
+    <h1>{{ .Title }}</h1>
+    <p>Browse content by {{ .Title | lower }}</p>
+  </header>
+
+  <div class="taxonomy-grid">
+    {{ range .Pages }}
+    <a href="{{ .RelPermalink }}" class="taxonomy-card">
+      <span class="taxonomy-name">{{ .Title }}</span>
+      <span class="taxonomy-count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}</span>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

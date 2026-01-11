@@ -1,0 +1,42 @@
+{{ define "styles" }}
+<link rel="stylesheet" href="/css/pages/blog.css">
+{{ end }}
+
+{{ define "main" }}
+<div class="blog-layout">
+  <header class="blog-header">
+    <h1>{{ .Title }}</h1>
+    <p>{{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }} tagged with "{{ .Title }}"</p>
+  </header>
+
+  <div class="blog-grid">
+    {{ range .Pages }}
+    <article class="blog-card">
+      <div class="blog-card-image">
+        <svg width="60" height="60" viewBox="0 0 800 700" aria-hidden="true">
+          <g transform="translate(10 680) rotate(0 387 -335)">
+            <path d="M0 0 L387 -670 L774 0 L343 -4 L344 -145 L521 -147 L393 -368 L182 0 Z" fill="#868e96"/>
+          </g>
+        </svg>
+      </div>
+      <div class="blog-card-content">
+        <span class="blog-card-meta">{{ .Date.Format "January 2, 2006" }}</span>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Description | default (.Plain | truncate 150) }}</p>
+        {{ with .Params.tags }}
+        <div class="blog-tags">
+          {{ range . }}
+          <span class="blog-tag">{{ . }}</span>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </div>
+
+  <div class="taxonomy-back">
+    <a href="/tags/" class="btn btn-secondary">&larr; All Tags</a>
+  </div>
+</div>
+{{ end }}
