@@ -110,6 +110,13 @@
   border-radius: var(--radius-sm);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.blog-tag:hover {
+  background: var(--color-gray-500);
+  color: var(--color-white);
 }
 
 @media (max-width: 768px) {
