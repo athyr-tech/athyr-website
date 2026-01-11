@@ -1,0 +1,29 @@
+{{ define "styles" }}
+<link rel="stylesheet" href="/css/pages/blog.css">
+{{ end }}
+
+{{ define "main" }}
+<div class="blog-layout">
+  <article class="blog-post">
+    <header class="blog-post-header">
+      <span class="blog-post-meta">{{ .Date.Format "January 2, 2006" }}</span>
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.tags }}
+      <div class="blog-tags">
+        {{ range . }}
+        <span class="blog-tag">{{ . }}</span>
+        {{ end }}
+      </div>
+      {{ end }}
+    </header>
+
+    <div class="blog-post-content">
+      {{ .Content }}
+    </div>
+
+    <footer class="blog-post-footer">
+      <a href="/blog/" class="btn btn-secondary">&larr; Back to Blog</a>
+    </footer>
+  </article>
+</div>
+{{ end }}

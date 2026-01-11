@@ -1,0 +1,65 @@
+{{ define "styles" }}
+<link rel="stylesheet" href="/css/pages/home.css">
+{{ end }}
+
+{{ define "main" }}
+<!-- Hero Section -->
+<section class="hero">
+  <svg class="hero-logo logo-svg" viewBox="0 0 800 700" aria-label="Athyr Logo">
+    <g transform="translate(10 680) rotate(0 387 -335)">
+      <path d="M0 0 L387 -670 L774 0 L343 -4 L344 -145 L521 -147 L393 -368 L182 0 Z" fill="#ffffff"/>
+    </g>
+    <rect x="320" y="534" width="70" height="142" fill="#6c757d"/>
+    <rect x="390" y="534" width="10" height="142" fill="#adb5bd"/>
+    <rect x="350" y="534" width="70" height="142" fill="#868e96"/>
+    <rect x="420" y="534" width="10" height="142" fill="#ced4da"/>
+  </svg>
+  <h1>ATHYR</h1>
+  <p>A lightweight runtime for distributed AI agents. Single binary. Language-agnostic. Seamlessly connected.</p>
+  <div class="hero-buttons">
+    <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
+    <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener" class="btn btn-secondary">View on GitHub</a>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features" id="features">
+  <h2 class="section-title">Why Athyr</h2>
+  <div class="features-grid">
+    {{ range .Site.Data.features }}
+    <article class="card">
+      <div class="card-icon">{{ .icon }}</div>
+      <h3>{{ .title }}</h3>
+      <p>{{ .description }}</p>
+    </article>
+    {{ end }}
+  </div>
+</section>
+
+<!-- Code Example Section -->
+<section class="code-section section--dark">
+  <div class="code-container">
+    <h2 class="section-title">Quick Start</h2>
+    <div class="code-block">
+      <pre><span class="comment"># Install Athyr</span>
+curl -sSL https://athyr.tech/install.sh | sh
+
+<span class="comment"># Start the server</span>
+athyr serve
+
+<span class="comment"># gRPC: localhost:9090</span>
+<span class="comment"># HTTP: localhost:8080</span>
+
+<span class="comment"># Connect agents via SDK</span>
+go get github.com/athyr-tech/athyr-sdk-go</pre>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+  <h2>Ready to orchestrate?</h2>
+  <p>Join the future of distributed agent systems.</p>
+  <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
+</section>
+{{ end }}
