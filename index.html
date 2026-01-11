@@ -58,14 +58,29 @@
       </svg>
       <span>ATHYR</span>
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       <a href="#features">Features</a>
       <a href="/docs/">Docs</a>
       <a href="/blog/">Blog</a>
       <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener" class="nav-cta--mobile">Get Started</a>
     </div>
     <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener" class="nav-cta">Get Started</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const links = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !isOpen);
+      links.classList.toggle('is-open');
+    });
+  </script>
   <!-- End Navigation -->
 
   <!-- Hero Section -->
