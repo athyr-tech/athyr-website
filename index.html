@@ -24,356 +24,30 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --black: #0d0d0d;
-      --dark: #1e1e1e;
-      --gray-600: #343a40;
-      --gray-500: #495057;
-      --gray-400: #6c757d;
-      --gray-300: #868e96;
-      --gray-200: #adb5bd;
-      --gray-100: #ced4da;
-      --white: #ffffff;
-      --accent: #4a9eff;
-    }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--black);
-      color: var(--white);
-      line-height: 1.6;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 1.5rem 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 100;
-      background: rgba(13, 13, 13, 0.8);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-    }
-
-    .nav-logo svg {
-      width: 32px;
-      height: 28px;
-    }
-
-    .nav-logo span {
-      font-family: 'Space Mono', monospace;
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: 0.1em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-    }
-
-    .nav-links a {
-      color: var(--gray-300);
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--white);
-    }
-
-    .nav-cta {
-      background: var(--white);
-      color: var(--black);
-      padding: 0.625rem 1.25rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-
-    .nav-cta:hover {
-      background: var(--gray-100);
-    }
-
-    /* Hero */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 8rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(74, 158, 255, 0.08) 0%, transparent 70%);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-
-    .hero-logo {
-      width: 180px;
-      height: 160px;
-      margin-bottom: 2rem;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    .hero h1 {
-      font-family: 'Space Mono', monospace;
-      font-size: 4rem;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--gray-300);
-      max-width: 600px;
-      margin-bottom: 3rem;
-      font-weight: 300;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .btn-primary {
-      background: var(--white);
-      color: var(--black);
-      padding: 1rem 2rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-
-    .btn-primary:hover {
-      background: var(--gray-100);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      padding: 1rem 2rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 500;
-      border: 1px solid var(--gray-600);
-      transition: all 0.2s;
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--gray-400);
-      background: rgba(255,255,255,0.03);
-    }
-
-    /* Features */
-    .features {
-      padding: 8rem 4rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .features h2 {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--gray-400);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      margin-bottom: 4rem;
-      text-align: center;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    @media (max-width: 900px) {
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .feature-card {
-      background: linear-gradient(135deg, rgba(52, 58, 64, 0.2) 0%, rgba(13, 13, 13, 0.8) 100%);
-      border: 1px solid var(--gray-600);
-      border-radius: 8px;
-      padding: 2rem;
-      transition: all 0.3s;
-    }
-
-    .feature-card:hover {
-      border-color: var(--gray-400);
-      transform: translateY(-4px);
-    }
-
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--gray-600);
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-    }
-
-    .feature-card h3 {
-      font-size: 1.125rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .feature-card p {
-      color: var(--gray-300);
-      font-size: 0.9375rem;
-      font-weight: 300;
-    }
-
-    /* Code Example */
-    .code-section {
-      padding: 6rem 4rem;
-      background: var(--dark);
-    }
-
-    .code-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .code-section h2 {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--gray-400);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .code-block {
-      background: var(--black);
-      border: 1px solid var(--gray-600);
-      border-radius: 8px;
-      padding: 1.5rem;
-      overflow-x: auto;
-    }
-
-    .code-block pre {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.875rem;
-      color: var(--gray-200);
-      margin: 0;
-    }
-
-    .code-block .comment { color: var(--gray-500); }
-    .code-block .keyword { color: #c792ea; }
-    .code-block .string { color: #c3e88d; }
-    .code-block .function { color: #82aaff; }
-
-    /* CTA */
-    .cta {
-      padding: 8rem 4rem;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-family: 'Space Mono', monospace;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      letter-spacing: 0.1em;
-    }
-
-    .cta p {
-      color: var(--gray-300);
-      margin-bottom: 2rem;
-      font-size: 1.125rem;
-    }
-
-    /* Footer */
-    footer {
-      padding: 3rem 4rem;
-      border-top: 1px solid var(--gray-600);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    footer p {
-      color: var(--gray-500);
-      font-size: 0.875rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .footer-links a {
-      color: var(--gray-400);
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--white);
-    }
-  </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/pages/home.css">
 </head>
 <body>
 
-  <nav>
-    <a href="#" class="nav-logo">
-      <svg viewBox="0 0 800 700">
+  <!-- ========================================
+       Navigation (shared across pages)
+       ======================================== -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 800 700" aria-hidden="true">
         <g transform="translate(10 680) rotate(0 387 -335)">
           <path d="M0 0 L387 -670 L774 0 L343 -4 L344 -145 L521 -147 L393 -368 L182 0 Z" fill="#ffffff"/>
         </g>
@@ -386,13 +60,17 @@
     </a>
     <div class="nav-links">
       <a href="#features">Features</a>
-      <a href="https://github.com/athyr-tech/athyr" target="_blank">GitHub</a>
+      <a href="/docs/">Docs</a>
+      <a href="/blog/">Blog</a>
+      <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <a href="https://github.com/athyr-tech/athyr" target="_blank" class="nav-cta">Get Started</a>
+    <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener" class="nav-cta">Get Started</a>
   </nav>
+  <!-- End Navigation -->
 
+  <!-- Hero Section -->
   <section class="hero">
-    <svg class="hero-logo" viewBox="0 0 800 700">
+    <svg class="hero-logo logo-svg" viewBox="0 0 800 700" aria-label="Athyr Logo">
       <g transform="translate(10 680) rotate(0 387 -335)">
         <path d="M0 0 L387 -670 L774 0 L343 -4 L344 -145 L521 -147 L393 -368 L182 0 Z" fill="#ffffff"/>
       </g>
@@ -404,50 +82,52 @@
     <h1>ATHYR</h1>
     <p>A lightweight runtime for distributed AI agents. Single binary. Language-agnostic. Seamlessly connected.</p>
     <div class="hero-buttons">
-      <a href="https://github.com/athyr-tech/athyr" target="_blank" class="btn-primary">Get Started</a>
-      <a href="https://github.com/athyr-tech/athyr" target="_blank" class="btn-secondary">View on GitHub</a>
+      <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
+      <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener" class="btn btn-secondary">View on GitHub</a>
     </div>
   </section>
 
+  <!-- Features Section -->
   <section class="features" id="features">
-    <h2>Why Athyr</h2>
+    <h2 class="section-title">Why Athyr</h2>
     <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">📦</div>
+      <article class="card">
+        <div class="card-icon">📦</div>
         <h3>Single Binary</h3>
         <p>No external dependencies. Deploy anywhere with a single executable. Zero configuration required.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔌</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">🔌</div>
         <h3>Language Agnostic</h3>
         <p>Write agents in any language. Athyr handles orchestration, messaging, and state management.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">⚡</div>
         <h3>LLM Gateway</h3>
         <p>Multi-backend routing with circuit breakers, automatic retry, and failover built in.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🧠</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">🧠</div>
         <h3>Stateless Agents</h3>
         <p>Agents remain stateless. Athyr manages memory and state externally for true scalability.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📡</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">📡</div>
         <h3>Agent Registry</h3>
         <p>Automatic discovery and registration. Agents find each other seamlessly through the runtime.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔒</div>
+      </article>
+      <article class="card">
+        <div class="card-icon">🔒</div>
         <h3>Edge Ready</h3>
         <p>Lightweight enough to run on edge devices. Perfect for IoT and distributed deployments.</p>
-      </div>
+      </article>
     </div>
   </section>
 
-  <section class="code-section">
+  <!-- Code Example Section -->
+  <section class="code-section section--dark">
     <div class="code-container">
-      <h2>Quick Start</h2>
+      <h2 class="section-title">Quick Start</h2>
       <div class="code-block">
         <pre><span class="comment"># Install Athyr</span>
 curl -sSL https://athyr.tech/install.sh | sh
@@ -464,19 +144,24 @@ go get github.com/athyr-tech/athyr-sdk-go</pre>
     </div>
   </section>
 
+  <!-- CTA Section -->
   <section class="cta">
     <h2>Ready to orchestrate?</h2>
     <p>Join the future of distributed agent systems.</p>
-    <a href="https://github.com/athyr-tech/athyr" target="_blank" class="btn-primary">Get Started</a>
+    <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Athyr</p>
+  <!-- ========================================
+       Footer (shared across pages)
+       ======================================== -->
+  <footer class="footer">
+    <p>&copy; 2026 Athyr</p>
     <div class="footer-links">
-      <a href="https://github.com/athyr-tech/athyr" target="_blank">GitHub</a>
-      <a href="https://github.com/athyr-tech/athyr-sdk-go" target="_blank">Go SDK</a>
+      <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/athyr-tech/athyr-sdk-go" target="_blank" rel="noopener">Go SDK</a>
     </div>
   </footer>
+  <!-- End Footer -->
 
 </body>
 </html>
