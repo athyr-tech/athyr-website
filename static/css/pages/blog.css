@@ -233,3 +233,50 @@
     font-size: 1.75rem;
   }
 }
+
+/* ======================
+   Taxonomy Pages (Tags)
+   ====================== */
+
+/* Taxonomy Grid - All Tags */
+.taxonomy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+.taxonomy-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, rgba(52, 58, 64, 0.2) 0%, rgba(13, 13, 13, 0.8) 100%);
+  border: 1px solid var(--color-gray-600);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.taxonomy-card:hover {
+  border-color: var(--color-gray-400);
+  transform: translateY(-4px);
+}
+
+.taxonomy-name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--color-white);
+  margin-bottom: var(--space-xs);
+}
+
+.taxonomy-count {
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+}
+
+/* Back Link */
+.taxonomy-back {
+  margin-top: var(--space-xl);
+  text-align: center;
+}
