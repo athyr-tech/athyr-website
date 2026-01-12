@@ -107,41 +107,60 @@
 .code-block .string { color: var(--color-syntax-string); }
 .code-block .function { color: var(--color-syntax-function); }
 
-/* Copy Code Button */
-.code-wrapper {
-  position: relative;
+/* Code Block with Header (GitHub style) */
+.code-block-wrapper {
+  border: 1px solid var(--color-gray-600);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-md);
 }
 
-.copy-btn {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  padding: 0.5rem;
+.code-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
   background: var(--color-gray-600);
+  border-bottom: 1px solid var(--color-gray-500);
+}
+
+.code-block-lang {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: var(--color-gray-300);
+  text-transform: lowercase;
+}
+
+.code-block-copy {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  background: transparent;
   border: 1px solid var(--color-gray-500);
   border-radius: var(--radius-sm);
   color: var(--color-gray-300);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
   cursor: pointer;
-  opacity: 0;
   transition: all var(--transition-normal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.code-wrapper:hover .copy-btn {
-  opacity: 1;
-}
-
-.copy-btn:hover {
+.code-block-copy:hover {
   background: var(--color-gray-500);
   color: var(--color-white);
 }
 
-.copy-btn.copied {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-white);
+.code-block-copy.copied {
+  background: rgba(46, 160, 67, 0.2);
+  border-color: #2ea043;
+  color: #3fb950;
+}
+
+.code-block-wrapper pre {
+  margin: 0;
+  border: none;
+  border-radius: 0;
 }
 
 /* ========================================
