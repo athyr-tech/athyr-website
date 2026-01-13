@@ -85,6 +85,26 @@
   font-size: 0.875em;
 }
 
+.docs-content pre {
+  background: var(--color-dark);
+  padding: var(--space-md);
+  overflow-x: auto;
+}
+
+/* When not wrapped by code-block-wrapper */
+.docs-content > pre {
+  border: 1px solid var(--color-gray-600);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+}
+
+.docs-content pre code {
+  background: transparent;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
 @media (max-width: 900px) {
   .docs-layout {
     grid-template-columns: 1fr;
