@@ -40,7 +40,7 @@ Register an agent with the platform.
 // Response
 {
   "agent_id": "my-agent-x7k2m",
-  "connected_at": "2024-01-15T10:30:00Z"
+  "connected_at": "2026-01-15T10:30:00Z"
 }
 ```
 
@@ -60,7 +60,7 @@ Signal the agent is still alive.
 // Response
 {
   "ok": true,
-  "server_time": "2024-01-15T10:30:30Z"
+  "server_time": "2026-01-15T10:30:30Z"
 }
 ```
 
@@ -302,8 +302,8 @@ Create a conversation session for memory.
   "profile": {
     ...
   },
-  "created_at": "2024-01-15T10:30:00Z",
-  "updated_at": "2024-01-15T10:30:00Z"
+  "created_at": "2026-01-15T10:30:00Z",
+  "updated_at": "2026-01-15T10:30:00Z"
 }
 ```
 

@@ -3,7 +3,7 @@ title: "Go SDK"
 description: "Building agents with the Athyr Go SDK"
 ---
 
-The Go SDK provides a client for building agents on the Athyr platform.
+The Go SDK is the primary client for building agents on the Athyr platform. It provides production-ready features including orchestration patterns, middleware, and resilience out of the box.
 
 ## Installation
 
@@ -11,11 +11,7 @@ The Go SDK provides a client for building agents on the Athyr platform.
 go get github.com/athyr-tech/athyr-sdk-go
 ```
 
-Requires Go 1.21+.
-
-**API Reference
-**: [pkg.go.dev/github.com/athyr-tech/athyr-sdk-go](https://pkg.go.dev/github.com/athyr-tech/athyr-sdk-go/pkg/athyr)
-¬
+Requires Go 1.21+ and a running [Athyr server](/docs/installation/).
 
 ## Quick Start
 
@@ -23,152 +19,97 @@ Requires Go 1.21+.
 package main
 
 import (
-	"context"
-	"fmt"
-
-	"github.com/athyr-tech/athyr-sdk-go/pkg/athyr"
+    "context"
+    "github.com/athyr-tech/athyr-sdk-go/pkg/athyr"
 )
 
 func main() {
-	ctx := context.Background()
+    agent := athyr.MustConnect("localhost:9090",
+        athyr.WithAgentCard(athyr.AgentCard{
+            Name:        "my-agent",
+            Description: "My first Athyr agent",
+        }),
+    )
+    defer agent.Close()
 
-	agent, _ := athyr.NewAgent("localhost:9090",
-		athyr.WithAgentCard(athyr.AgentCard{Name: "my-agent"}),
-		athyr.WithInsecure(),
-	)
-	agent.Connect(ctx)
-	defer agent.Close()
-
-	resp, _ := agent.Complete(ctx, athyr.CompletionRequest{
-		Model:    "llama3",
-		Messages: []athyr.Message{{Role: "user", Content: "Hello!"}},
-	})
-	fmt.Println(resp.Content)
+    resp, _ := agent.Complete(context.Background(), athyr.CompletionRequest{
+        Model:    "llama3",
+        Messages: []athyr.Message{{Role: "user", Content: "Hello!"}},
+    })
+    println(resp.Content)
 }
 ```
 
-## Common Patterns
+## Features
 
-### Streaming Responses
+### Core Agent
+
+- **Connect/Disconnect** — Lifecycle management with automatic reconnection
+- **Pub/Sub Messaging** — Subscribe to subjects, publish messages, request/reply
+- **LLM Completions** — Blocking and streaming completions via Athyr backends
+- **Memory Sessions** — Conversation context with automatic summarization
+- **KV Storage** — Key-value buckets for agent state
+- **Tool Calling** — LLM function calling support
+
+### Orchestration Patterns
+
+Located in `pkg/orchestration/`:
+
+| Pattern      | Description                              |
+|--------------|------------------------------------------|
+| **Pipeline** | Sequential agent chain (A → B → C)       |
+| **FanOut**   | Parallel execution with aggregation      |
+| **Handoff**  | Dynamic routing via triage agent         |
+| **GroupChat**| Multi-agent collaborative discussion     |
+
+### Middleware
+
+- `Recover` — Panic recovery
+- `Timeout` — Request timeouts
+- `Retry` — Automatic retries with backoff
+- `RateLimit` — Concurrency limiting
+- `Metrics` — Duration/error callbacks
+- `Validate` — Input validation
+- `LogRequests` — Request/response logging
+
+### Server Pattern
+
+For building agent services that handle requests:
 
 ```go
-agent.CompleteStream(ctx, athyr.CompletionRequest{
-Model:    "llama3",
-Messages: messages,
-}, func (chunk athyr.StreamChunk) error {
-fmt.Print(chunk.Content)
-return nil
-})
-```
-
-### Conversation Memory
-
-```go
-// Create session with system prompt
-session, _ := agent.CreateSession(ctx,
-athyr.DefaultSessionProfile(),
-"You are a helpful assistant.",
+server := athyr.NewServer("localhost:9090",
+    athyr.WithAgentName("my-service"),
 )
 
-// Completions automatically include history
-resp, _ := agent.Complete(ctx, athyr.CompletionRequest{
-Model:         "llama3",
-Messages:      []athyr.Message{{Role: "user", Content: "Hi"}},
-SessionID:     session.ID,
-IncludeMemory: true,
-})
-```
-
-### Request/Reply Services
-
-```go
-type AddRequest struct {
-A, B int `json:"a,b"`
-}
-
-type AddResponse struct {
-Result int `json:"result"`
-}
-
-func main() {
-ctx := context.Background()
-
-athyr.Run(ctx, "localhost:9090", "math.add",
-func (ctx athyr.Context, req AddRequest) (AddResponse, error) {
-return AddResponse{Result: req.A + req.B}, nil
-},
-)
-}
-```
-
-### Key-Value Storage
-
-```go
-bucket := agent.KV("user-data")
-
-// Store
-bucket.Put(ctx, "user:123", []byte(`{"name":"Alice"}`))
-
-// Retrieve
-entry, _ := bucket.Get(ctx, "user:123")
-fmt.Println(string(entry.Value))
-```
-
-### Pub/Sub Messaging
-
-```go
-// Subscribe
-agent.Subscribe(ctx, "events.>", func (msg athyr.SubscribeMessage) {
-fmt.Printf("Got: %s\n", string(msg.Data))
+athyr.Handle(server, "echo.request", func(ctx athyr.Context, req EchoRequest) (EchoResponse, error) {
+    return EchoResponse{Echo: req.Message}, nil
 })
 
-// Publish
-agent.Publish(ctx, "events.user.signup", []byte(`{"id":"123"}`))
-
-// Request/Reply
-response, _ := agent.Request(ctx, "math.add", []byte(`{"a":1,"b":2}`))
+server.Run(context.Background())
 ```
 
-### Auto-Reconnection
+## Documentation
 
-```go
-agent, _ := athyr.NewAgent("athyr.example.com:9090",
-athyr.WithAutoReconnect(10, time.Second),
-athyr.WithConnectionCallback(func (state athyr.ConnectionState, err error) {
-log.Printf("Connection state: %s", state)
-}),
-)
-```
+Full documentation and examples are maintained in the SDK repository:
 
-### Error Handling
+- **[SDK README](https://github.com/athyr-tech/athyr-sdk-go)** — Complete feature guide
+- **[API Reference](https://pkg.go.dev/github.com/athyr-tech/athyr-sdk-go/pkg/athyr)** — GoDoc
+- **[Examples](https://github.com/athyr-tech/athyr-sdk-go/tree/main/examples)** — Working code samples
 
-```go
-entry, err := bucket.Get(ctx, "key")
-if athyr.IsNotFound(err) {
-// Handle missing key
-}
+### Available Examples
 
-resp, err := agent.Complete(ctx, req)
-if athyr.IsUnavailable(err) {
-// Retry later
-}
-```
-
-## Configuration Options
-
-| Option                                | Description                      |
-|---------------------------------------|----------------------------------|
-| `WithAgentCard(card)`                 | Set agent identity               |
-| `WithInsecure()`                      | Disable TLS (development)        |
-| `WithTLS(certFile)`                   | Use CA certificate               |
-| `WithSystemTLS()`                     | Use system certificates          |
-| `WithAutoReconnect(retries, backoff)` | Enable auto-reconnection         |
-| `WithLogger(logger)`                  | Enable logging (slog compatible) |
-| `WithHeartbeatInterval(d)`            | Heartbeat frequency              |
-| `WithRequestTimeout(d)`               | Request timeout                  |
+| Example                                                                          | Demonstrates                  |
+|----------------------------------------------------------------------------------|-------------------------------|
+| [quickstart](https://github.com/athyr-tech/athyr-sdk-go/tree/main/examples/quickstart) | Basic agent setup             |
+| [pipeline](https://github.com/athyr-tech/athyr-sdk-go/tree/main/examples/pipeline)     | Sequential orchestration      |
+| [fanout](https://github.com/athyr-tech/athyr-sdk-go/tree/main/examples/fanout)         | Parallel execution            |
+| [group-chat](https://github.com/athyr-tech/athyr-sdk-go/tree/main/examples/group-chat) | Multi-agent collaboration     |
+| [handoff-router](https://github.com/athyr-tech/athyr-sdk-go/tree/main/examples/handoff-router) | Dynamic routing via triage |
+| [resilience](https://github.com/athyr-tech/athyr-sdk-go/tree/main/examples/resilience) | Error handling and retries    |
+| [tool-calling](https://github.com/athyr-tech/athyr-sdk-go/tree/main/examples/tool-calling) | LLM function calling      |
 
 ## Next Steps
 
-- [Agents](/docs/agents/) - Agent concepts and lifecycle
-- [LLM Gateway](/docs/gateway/) - LLM provider configuration
-- [State Management](/docs/state/) - Memory and KV details
+- [Agents](/docs/agents/) — Agent concepts and lifecycle
+- [LLM Gateway](/docs/gateway/) — LLM provider configuration
+- [State Management](/docs/state/) — Memory and KV details
