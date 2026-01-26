@@ -105,6 +105,81 @@
   line-height: 1.6;
 }
 
+/* H3 Headings */
+.docs-content h3 {
+  font-size: 1.125rem;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  color: var(--color-white);
+}
+
+/* Lists */
+.docs-content ul,
+.docs-content ol {
+  margin: var(--space-sm) 0;
+  padding-left: var(--space-md);
+  color: var(--color-gray-200);
+}
+
+.docs-content ul {
+  list-style-type: disc;
+}
+
+.docs-content ol {
+  list-style-type: decimal;
+}
+
+.docs-content li {
+  margin-bottom: var(--space-xs);
+  line-height: 1.7;
+}
+
+.docs-content li::marker {
+  color: var(--color-gray-500);
+}
+
+/* Nested lists */
+.docs-content ul ul,
+.docs-content ol ol,
+.docs-content ul ol,
+.docs-content ol ul {
+  margin-top: var(--space-xs);
+  margin-bottom: 0;
+}
+
+/* Links in content */
+.docs-content a {
+  color: var(--color-accent);
+  transition: opacity var(--transition-fast);
+}
+
+.docs-content a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Strong/Bold text */
+.docs-content strong {
+  color: var(--color-white);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Blockquotes */
+.docs-content blockquote {
+  border-left: 3px solid var(--color-gray-500);
+  padding-left: var(--space-md);
+  margin: var(--space-md) 0;
+  color: var(--color-gray-300);
+  font-style: italic;
+}
+
+/* Horizontal rules */
+.docs-content hr {
+  border: none;
+  border-top: 1px solid var(--color-gray-600);
+  margin: var(--space-lg) 0;
+}
+
 /* Tables */
 .docs-content table {
   width: 100%;
