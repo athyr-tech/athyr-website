@@ -18,6 +18,14 @@
   title: "Agent Registry"
   description: "Automatic discovery and registration. Agents find each other seamlessly through the runtime."
 
+- icon: "📄"
+  title: "YAML Agents"
+  description: "Define agents in YAML and run them instantly with athyr-agent. No code required — just configure topics, models, and tools."
+
+- icon: "🧩"
+  title: "Lua Plugins"
+  description: "Extend agents with custom event sources and destinations written in Lua. File watchers, webhooks, and more."
+
 - icon: "🔒"
   title: "Edge Ready"
   description: "Lightweight enough to run on edge devices. Perfect for IoT and distributed deployments."

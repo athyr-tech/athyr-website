@@ -28,7 +28,7 @@
   <div class="features-grid">
     {{ range .Site.Data.features }}
     <article class="card">
-      <div class="card-icon">{{ .icon }}</div>
+      <div class="card-icon">{{ with .icon_svg }}{{ . | safeHTML }}{{ else }}{{ .icon }}{{ end }}</div>
       <h3>{{ .title }}</h3>
       <p>{{ .description }}</p>
     </article>
