@@ -7,9 +7,17 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
+      {{ $version := "v0.1.10" }}
+      {{ with try (resources.GetRemote "https://api.github.com/repos/athyr-tech/athyr-bin/releases/latest") }}
+        {{ with .Err }}{{ warnf "Failed to fetch release: %s" . }}{{ end }}
+        {{ with .Value }}
+          {{ $data := unmarshal .Content }}
+          {{ $version = $data.tag_name }}
+        {{ end }}
+      {{ end }}
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        v0.4.2 Stable Release
+        {{ $version }} Latest Release
       </div>
       <h1>AGENT<br><span class="accent">RUNTIME.</span></h1>
       <p class="hero-description">A lightweight runtime for distributed AI agents. Single binary. Language-agnostic. Optimized for the edge and high-performance backend orchestration.</p>
