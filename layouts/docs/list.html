@@ -10,6 +10,7 @@
   <main class="docs-content">
     <h1>{{ .Title }}</h1>
     {{ .Content }}
+    {{ partial "docs-pager.html" . }}
   </main>
 
   <!-- Table of Contents -->
@@ -20,4 +21,5 @@
   </aside>
   {{ end }}
 </div>
+<script src="/js/docs-toc.js"></script>
 {{ end }}

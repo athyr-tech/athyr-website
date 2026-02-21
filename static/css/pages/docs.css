@@ -58,7 +58,7 @@
 
 .docs-nav a.active {
   color: var(--color-white);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(74, 158, 255, 0.06);
   border-left-color: var(--color-accent);
 }
 
@@ -105,15 +105,23 @@
 
 .docs-toc nav a {
   display: block;
-  padding: 0.2rem 0;
-  color: var(--color-gray-400);
+  padding: 0.3rem 0;
+  color: var(--color-gray-500);
   font-size: 0.75rem;
   line-height: 1.5;
   transition: color var(--transition-fast);
+  border-left: 1.5px solid transparent;
+  padding-left: var(--space-xs);
+  margin-left: -1px;
 }
 
 .docs-toc nav a:hover {
+  color: var(--color-gray-200);
+}
+
+.docs-toc nav a.active {
   color: var(--color-white);
+  border-left-color: var(--color-accent);
 }
 
 .docs-content h1 {
@@ -127,7 +135,7 @@
   margin-top: var(--space-xl);
   margin-bottom: var(--space-md);
   padding-bottom: var(--space-xs);
-  border-bottom: 1px solid var(--color-gray-600);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .docs-content p {
@@ -276,6 +284,55 @@
 
 .docs-content td a:hover {
   text-decoration: underline;
+}
+
+/* Prev/Next Navigation */
+.docs-pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-light);
+}
+
+.docs-pager-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: var(--space-md);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  text-decoration: none !important;
+}
+
+.docs-pager-link:hover {
+  border-color: var(--border-light);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.docs-pager-link--next {
+  text-align: right;
+  grid-column: 2;
+}
+
+.docs-pager-label {
+  font-family: var(--font-display);
+  font-size: 0.625rem;
+  color: var(--color-gray-500);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.docs-pager-title {
+  font-size: 0.875rem;
+  color: var(--color-accent) !important;
+  font-weight: var(--font-weight-medium);
+}
+
+.docs-pager-link:hover .docs-pager-title {
+  color: var(--color-white) !important;
 }
 
 @media (max-width: 1100px) {

@@ -1,0 +1,50 @@
+{{/* Docs page ordering — must match sidebar nav */}}
+{{ $pages := slice
+  (dict "url" "/docs/" "title" "Introduction")
+  (dict "url" "/docs/installation/" "title" "Installation")
+  (dict "url" "/docs/quickstart/" "title" "Quick Start")
+  (dict "url" "/docs/agents/" "title" "Agents")
+  (dict "url" "/docs/gateway/" "title" "LLM Gateway")
+  (dict "url" "/docs/state/" "title" "State Management")
+  (dict "url" "/docs/athyr-agent/" "title" "Athyr Agent")
+  (dict "url" "/docs/sdk-go/" "title" "Go SDK")
+  (dict "url" "/docs/sdk-python/" "title" "Python SDK")
+  (dict "url" "/docs/sdk-typescript/" "title" "TypeScript SDK")
+  (dict "url" "/docs/api/" "title" "API Reference")
+  (dict "url" "/docs/configuration/" "title" "Configuration")
+  (dict "url" "/docs/cli/" "title" "CLI Commands")
+}}
+
+{{ $current := .RelPermalink }}
+{{ $prev := false }}
+{{ $next := false }}
+{{ $found := false }}
+
+{{ range $i, $p := $pages }}
+  {{ if $found }}
+    {{ if not $next }}
+      {{ $next = $p }}
+    {{ end }}
+  {{ else if eq $p.url $current }}
+    {{ $found = true }}
+  {{ else }}
+    {{ $prev = $p }}
+  {{ end }}
+{{ end }}
+
+{{ if or $prev $next }}
+<nav class="docs-pager">
+  {{ with $prev }}
+  <a href="{{ .url }}" class="docs-pager-link docs-pager-link--prev">
+    <span class="docs-pager-label">&larr; Previous</span>
+    <span class="docs-pager-title">{{ .title }}</span>
+  </a>
+  {{ end }}
+  {{ with $next }}
+  <a href="{{ .url }}" class="docs-pager-link docs-pager-link--next">
+    <span class="docs-pager-label">Next &rarr;</span>
+    <span class="docs-pager-title">{{ .title }}</span>
+  </a>
+  {{ end }}
+</nav>
+{{ end }}
