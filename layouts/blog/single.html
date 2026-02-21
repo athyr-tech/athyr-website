@@ -3,10 +3,15 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="blog-layout">
+<div class="blog-layout {{ if .TableOfContents }}blog-layout--with-toc{{ end }}">
   <article class="blog-post">
     <header class="blog-post-header">
-      <span class="blog-post-meta">{{ .Date.Format "January 2, 2006" }}</span>
+      <a href="/blog/" class="blog-post-back">&larr; Blog</a>
+      <div class="blog-post-meta">
+        <time>{{ .Date.Format "January 2, 2006" }}</time>
+        <span class="blog-entry-dot">&middot;</span>
+        <span>{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
+      </div>
       <h1>{{ .Title }}</h1>
       {{ with .Params.tags }}
       <div class="blog-tags">
@@ -22,8 +27,16 @@
     </div>
 
     <footer class="blog-post-footer">
-      <a href="/blog/" class="btn btn-secondary">&larr; Back to Blog</a>
+      <a href="/blog/" class="blog-post-back">&larr; Back to all posts</a>
     </footer>
   </article>
+
+  {{ if .TableOfContents }}
+  <aside class="blog-toc">
+    <h4 class="blog-toc-title">On This Page</h4>
+    {{ .TableOfContents }}
+  </aside>
+  {{ end }}
 </div>
+<script src="/js/docs-toc.js"></script>
 {{ end }}

@@ -5,32 +5,27 @@
 {{ define "main" }}
 <div class="blog-layout">
   <header class="blog-header">
-    <h1>Blog</h1>
+    <span class="blog-header-label">Blog</span>
     <p>News, tutorials, and insights about distributed AI agents</p>
   </header>
 
-  <div class="blog-grid">
+  <div class="blog-list">
     {{ range .Pages }}
-    <article class="blog-card">
-      <div class="blog-card-image">
-        <svg width="60" height="60" viewBox="0 0 800 700" aria-hidden="true">
-          <g transform="translate(10 680) rotate(0 387 -335)">
-            <path d="M0 0 L387 -670 L774 0 L343 -4 L344 -145 L521 -147 L393 -368 L182 0 Z" fill="#868e96"/>
-          </g>
-        </svg>
+    <article class="blog-entry">
+      <div class="blog-entry-meta">
+        <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+        <span class="blog-entry-dot">&middot;</span>
+        <span>{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
       </div>
-      <div class="blog-card-content">
-        <span class="blog-card-meta">{{ .Date.Format "January 2, 2006" }}</span>
-        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <p>{{ .Description | default (.Plain | truncate 150) }}</p>
-        {{ with .Params.tags }}
-        <div class="blog-tags">
-          {{ range . }}
-          <a href="/tags/{{ . | urlize }}/" class="blog-tag">{{ . }}</a>
-          {{ end }}
-        </div>
+      <h2 class="blog-entry-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <p class="blog-entry-desc">{{ .Description | default (.Plain | truncate 200) }}</p>
+      {{ with .Params.tags }}
+      <div class="blog-tags">
+        {{ range . }}
+        <a href="/tags/{{ . | urlize }}/" class="blog-tag">{{ . }}</a>
         {{ end }}
       </div>
+      {{ end }}
     </article>
     {{ end }}
   </div>

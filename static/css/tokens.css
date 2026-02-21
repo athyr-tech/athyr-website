@@ -1,26 +1,33 @@
 /**
  * Athyr Design Tokens
- * Brand colors, typography, and spacing from brand guidelines
+ * Technical blueprint aesthetic
  */
 
 :root {
-  /* Brand Colors (from athyr-brand guidelines) */
-  --color-black: #1e1e1e;      /* Primary Black */
-  --color-dark: #0d0d0d;       /* Deep Black (backgrounds) */
-  --color-gray-600: #343a40;   /* Dark Gray */
-  --color-gray-500: #495057;   /* Medium Dark Gray */
-  --color-gray-400: #6c757d;   /* Mid Gray */
-  --color-gray-300: #868e96;   /* Agent Gray */
-  --color-gray-200: #adb5bd;   /* Light Gray */
-  --color-gray-100: #ced4da;   /* Pale Gray */
+  /* Brand Colors */
+  --color-dark: #0d0d0d;
+  --color-black: #1e1e1e;
   --color-white: #ffffff;
-  --color-accent: #4a9eff;     /* Accent Blue */
+  --color-accent: #4a9eff;
+
+  /* Gray Scale */
+  --color-gray-600: #343a40;
+  --color-gray-500: #495057;
+  --color-gray-400: #6c757d;
+  --color-gray-300: #868e96;
+  --color-gray-200: #adb5bd;
+  --color-gray-100: #ced4da;
 
   /* Syntax Highlighting */
   --color-syntax-comment: #495057;
   --color-syntax-keyword: #c792ea;
   --color-syntax-string: #c3e88d;
   --color-syntax-function: #82aaff;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-medium: rgba(255, 255, 255, 0.2);
 
   /* Typography */
   --font-display: 'Space Mono', monospace;
@@ -32,34 +39,31 @@
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-
-  /* Letter Spacing */
-  --letter-spacing-tight: 0.1em;
-  --letter-spacing-normal: 0.2em;
-  --letter-spacing-wide: 0.3em;
+  --font-weight-black: 900;
 
   /* Spacing Scale */
-  --space-xs: 0.5rem;   /* 8px */
-  --space-sm: 1rem;     /* 16px */
-  --space-md: 1.5rem;   /* 24px */
-  --space-lg: 2rem;     /* 32px */
-  --space-xl: 4rem;     /* 64px */
-  --space-2xl: 6rem;    /* 96px */
-  --space-3xl: 8rem;    /* 128px */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
 
   /* Border Radius */
   --radius-sm: 2px;
   --radius-md: 4px;
   --radius-lg: 8px;
+  --radius-xl: 12px;
 
   /* Transitions */
-  --transition-fast: 0.2s ease;
+  --transition-fast: 0.15s ease;
   --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease-in-out;
 
   /* Z-Index Scale */
   --z-nav: 100;
   --z-modal: 200;
-  --z-tooltip: 300;
 
   /* Container Widths */
   --container-sm: 640px;
