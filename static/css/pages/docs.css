@@ -47,19 +47,26 @@
   color: var(--color-gray-300);
   font-size: 0.875rem;
   border-radius: var(--radius-md);
-  border-left: 2px solid transparent;
+  position: relative;
   transition: all var(--transition-fast);
 }
 
 .docs-nav a:hover {
   color: var(--color-white);
-  background: rgba(255, 255, 255, 0.05);
 }
 
 .docs-nav a.active {
   color: var(--color-white);
-  background: rgba(74, 158, 255, 0.06);
-  border-left-color: var(--color-accent);
+}
+
+.docs-nav a.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--color-accent);
 }
 
 /* Docs Content */
