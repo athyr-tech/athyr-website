@@ -1,0 +1,32 @@
+<aside class="docs-sidebar">
+  <nav class="docs-nav">
+    <div class="docs-nav-section">
+      <h3 class="docs-nav-title">Getting Started</h3>
+      <a href="/docs/"{{ if eq .RelPermalink "/docs/" }} class="active"{{ end }}>Introduction</a>
+      <a href="/docs/installation/"{{ if eq .RelPermalink "/docs/installation/" }} class="active"{{ end }}>Installation</a>
+      <a href="/docs/quickstart/"{{ if eq .RelPermalink "/docs/quickstart/" }} class="active"{{ end }}>Quick Start</a>
+    </div>
+    <div class="docs-nav-section">
+      <h3 class="docs-nav-title">Core Concepts</h3>
+      <a href="/docs/agents/"{{ if eq .RelPermalink "/docs/agents/" }} class="active"{{ end }}>Agents</a>
+      <a href="/docs/gateway/"{{ if eq .RelPermalink "/docs/gateway/" }} class="active"{{ end }}>LLM Gateway</a>
+      <a href="/docs/state/"{{ if eq .RelPermalink "/docs/state/" }} class="active"{{ end }}>State Management</a>
+    </div>
+    <div class="docs-nav-section">
+      <h3 class="docs-nav-title">Tools</h3>
+      <a href="/docs/athyr-agent/"{{ if eq .RelPermalink "/docs/athyr-agent/" }} class="active"{{ end }}>Athyr Agent</a>
+    </div>
+    <div class="docs-nav-section">
+      <h3 class="docs-nav-title">SDKs</h3>
+      <a href="/docs/sdk-go/"{{ if eq .RelPermalink "/docs/sdk-go/" }} class="active"{{ end }}>Go SDK</a>
+      <a href="/docs/sdk-python/"{{ if eq .RelPermalink "/docs/sdk-python/" }} class="active"{{ end }}>Python SDK</a>
+      <a href="/docs/sdk-typescript/"{{ if eq .RelPermalink "/docs/sdk-typescript/" }} class="active"{{ end }}>TypeScript SDK</a>
+    </div>
+    <div class="docs-nav-section">
+      <h3 class="docs-nav-title">Reference</h3>
+      <a href="/docs/api/"{{ if eq .RelPermalink "/docs/api/" }} class="active"{{ end }}>API Reference</a>
+      <a href="/docs/configuration/"{{ if eq .RelPermalink "/docs/configuration/" }} class="active"{{ end }}>Configuration</a>
+      <a href="/docs/cli/"{{ if eq .RelPermalink "/docs/cli/" }} class="active"{{ end }}>CLI Commands</a>
+    </div>
+  </nav>
+</aside>
