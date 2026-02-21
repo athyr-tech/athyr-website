@@ -202,6 +202,11 @@
 
 .hero h1 .accent {
   color: var(--color-white);
+  background: rgba(74, 158, 255, 0.15);
+  padding: 0.02em 0.15em;
+  margin-left: -0.15em;
+  line-height: 1;
+  display: inline-block;
 }
 
 .hero-description {
