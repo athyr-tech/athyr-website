@@ -167,7 +167,7 @@
 
 .card p {
   font-family: var(--font-body);
-  color: var(--color-gray-400);
+  color: var(--color-gray-300);
   font-size: 0.6875rem;
   line-height: 1.7;
   margin-bottom: 0;
@@ -179,7 +179,7 @@
 }
 
 .card:hover p {
-  color: var(--color-gray-300);
+  color: var(--color-gray-200);
 }
 
 @media (max-width: 1024px) {

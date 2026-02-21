@@ -13,6 +13,7 @@
     codeBlocks.forEach(function(pre) {
       if (pre.parentElement.classList.contains('code-block-wrapper')) return;
       if (pre.parentElement.classList.contains('code-block')) return;
+      if (pre.classList.contains('hero-terminal-body')) return;
 
       // Get language from code element class (e.g., "language-go")
       var code = pre.querySelector('code');

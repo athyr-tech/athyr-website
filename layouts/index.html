@@ -20,17 +20,21 @@
     </div>
     <div class="hero-visual">
       <div class="hero-visual-glow"></div>
-      <div class="hero-visual-logo">
-        <svg viewBox="0 0 800 850" aria-hidden="true">
-          <g transform="translate(10 680) rotate(0 387 -335)">
-            <path d="M0 0 L387 -670 L774 0 L343 -4 L344 -145 L521 -147 L393 -368 L182 0 Z" fill="#ffffff"/>
-          </g>
-          <rect x="320" y="534" width="70" height="142" fill="#6c757d"/>
-          <rect x="390" y="534" width="10" height="142" fill="#adb5bd"/>
-          <rect x="350" y="534" width="70" height="142" fill="#868e96"/>
-          <rect x="420" y="534" width="10" height="142" fill="#ced4da"/>
-          <text x="400" y="780" text-anchor="middle" fill="#ffffff" font-family="'Space Mono', monospace" font-weight="900" font-size="88" letter-spacing="0.2em">ATHYR</text>
-        </svg>
+      <div class="hero-terminal code-block">
+        <div class="hero-terminal-header">
+          <div class="hero-terminal-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="hero-terminal-title">terminal</span>
+        </div>
+        <pre class="hero-terminal-body"><span class="ht-prompt">$</span> <span class="ht-cmd">curl</span> -sSL athyr.tech/install | sh
+<span class="ht-dim">installing athyr v0.4.2...</span>
+<span class="ht-success">✓ installed</span> <span class="ht-dim">/usr/local/bin/athyr</span>
+
+<span class="ht-prompt">$</span> <span class="ht-cmd">athyr</span> serve
+<span class="ht-dim">gRPC → localhost:9090</span>
+<span class="ht-dim">HTTP → localhost:8080</span>
+<span class="ht-success">✓ runtime ready</span> <span class="ht-dim">(3ms)</span></pre>
       </div>
     </div>
   </div>

@@ -21,7 +21,7 @@
 .hero h1,
 .hero-description,
 .hero-buttons,
-.hero-visual-logo {
+.hero-terminal {
   opacity: 0;
   animation: fade-up 0.8s ease-out forwards;
 }
@@ -30,7 +30,7 @@
 .hero h1            { animation-delay: 0.25s; }
 .hero-description   { animation-delay: 0.4s; }
 .hero-buttons       { animation-delay: 0.55s; }
-.hero-visual-logo   { animation-delay: 0.5s; animation-duration: 1s; }
+.hero-terminal      { animation-delay: 0.5s; animation-duration: 1s; }
 
 /* Features section — header and cards */
 .features-header,

@@ -146,7 +146,7 @@
    ======================================== */
 .hero {
   position: relative;
-  padding: 12rem var(--space-md) var(--space-3xl);
+  padding: 10rem var(--space-md) var(--space-3xl);
   overflow: hidden;
 }
 
@@ -162,7 +162,7 @@
   flex: 1.2;
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
   min-width: 0;
 }
 
@@ -201,14 +201,14 @@
 }
 
 .hero h1 .accent {
-  color: var(--color-accent);
+  color: var(--color-white);
 }
 
 .hero-description {
   font-family: var(--font-body);
-  font-size: 1.125rem;
-  color: var(--color-gray-400);
-  max-width: 540px;
+  font-size: 1rem;
+  color: var(--color-gray-300);
+  max-width: 480px;
   line-height: 1.7;
   margin: 0;
 }
@@ -230,8 +230,8 @@
 
 .hero-visual-glow {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 450px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -247,19 +247,87 @@
 
 .hero-visual-logo {
   position: relative;
-  width: 360px;
+  width: 300px;
   animation: float-breathe 8s ease-in-out infinite;
 }
 
 .hero-visual-logo svg {
   width: 100%;
   height: auto;
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
 @keyframes float-breathe {
   0%, 100% { transform: translateY(0) scale(1); }
   50% { transform: translateY(-14px) scale(1.04); }
+}
+
+/* Hero Terminal */
+.hero-terminal {
+  width: 100%;
+  max-width: 440px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  animation: float-breathe 8s ease-in-out infinite;
+}
+
+.hero-terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.hero-terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.hero-terminal-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gray-600);
+}
+
+.hero-terminal-title {
+  font-family: var(--font-mono, 'SF Mono', 'Fira Code', monospace);
+  font-size: 0.625rem;
+  color: var(--color-gray-500);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-terminal-body {
+  padding: 1.25rem 1.25rem;
+  margin: 0;
+  font-family: var(--font-mono, 'SF Mono', 'Fira Code', monospace);
+  font-size: 0.6875rem;
+  line-height: 1.8;
+  color: var(--color-gray-300);
+  overflow: hidden;
+}
+
+.ht-prompt {
+  color: var(--color-accent);
+}
+
+.ht-cmd {
+  color: var(--color-white);
+  font-weight: var(--font-weight-bold);
+}
+
+.ht-dim {
+  color: var(--color-gray-500);
+}
+
+.ht-success {
+  color: #10b981;
 }
 
 @media (max-width: 768px) {
