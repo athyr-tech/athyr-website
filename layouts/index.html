@@ -5,61 +5,98 @@
 {{ define "main" }}
 <!-- Hero Section -->
 <section class="hero">
-  <svg class="hero-logo logo-svg" viewBox="0 0 800 700" aria-label="Athyr Logo">
-    <g transform="translate(10 680) rotate(0 387 -335)">
-      <path d="M0 0 L387 -670 L774 0 L343 -4 L344 -145 L521 -147 L393 -368 L182 0 Z" fill="#ffffff"/>
-    </g>
-    <rect x="320" y="534" width="70" height="142" fill="#6c757d"/>
-    <rect x="390" y="534" width="10" height="142" fill="#adb5bd"/>
-    <rect x="350" y="534" width="70" height="142" fill="#868e96"/>
-    <rect x="420" y="534" width="10" height="142" fill="#ced4da"/>
-  </svg>
-  <h1>ATHYR</h1>
-  <p>A lightweight runtime for distributed AI agents. Single binary. Language-agnostic. Seamlessly connected.</p>
-  <div class="hero-buttons">
-    <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
-    <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener" class="btn btn-secondary">View on GitHub</a>
-  </div>
-</section>
-
-<!-- Features Section -->
-<section class="features" id="features">
-  <h2 class="section-title">Why Athyr</h2>
-  <div class="features-grid">
-    {{ range .Site.Data.features }}
-    <article class="card">
-      <div class="card-icon">{{ with .icon_svg }}{{ . | safeHTML }}{{ else }}{{ .icon }}{{ end }}</div>
-      <h3>{{ .title }}</h3>
-      <p>{{ .description }}</p>
-    </article>
-    {{ end }}
-  </div>
-</section>
-
-<!-- Code Example Section -->
-<section class="code-section section--dark">
-  <div class="code-container">
-    <h2 class="section-title">Quick Start</h2>
-    <div class="code-block">
-      <pre><span class="comment"># Install Athyr</span>
-curl -sSL https://athyr.tech/install.sh | sh
-
-<span class="comment"># Start the server</span>
-athyr serve
-
-<span class="comment"># gRPC: localhost:9090</span>
-<span class="comment"># HTTP: localhost:8080</span>
-
-<span class="comment"># Connect agents via SDK</span>
-go get github.com/athyr-tech/athyr-sdk-go</pre>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        v0.4.2 Stable Release
+      </div>
+      <h1>AGENT<br><span class="accent">RUNTIME.</span></h1>
+      <p class="hero-description">A lightweight runtime for distributed AI agents. Single binary. Language-agnostic. Optimized for the edge and high-performance backend orchestration.</p>
+      <div class="hero-buttons">
+        <a href="/docs/quickstart/" class="btn btn-primary">Get Started</a>
+        <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener" class="btn btn-secondary">View on GitHub</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-glow"></div>
+      <div class="hero-visual-logo">
+        <svg viewBox="0 0 800 850" aria-hidden="true">
+          <g transform="translate(10 680) rotate(0 387 -335)">
+            <path d="M0 0 L387 -670 L774 0 L343 -4 L344 -145 L521 -147 L393 -368 L182 0 Z" fill="#ffffff"/>
+          </g>
+          <rect x="320" y="534" width="70" height="142" fill="#6c757d"/>
+          <rect x="390" y="534" width="10" height="142" fill="#adb5bd"/>
+          <rect x="350" y="534" width="70" height="142" fill="#868e96"/>
+          <rect x="420" y="534" width="10" height="142" fill="#ced4da"/>
+          <text x="400" y="780" text-anchor="middle" fill="#ffffff" font-family="'Space Mono', monospace" font-weight="900" font-size="88" letter-spacing="0.2em">ATHYR</text>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="cta">
-  <h2>Ready to orchestrate?</h2>
-  <p>Join the future of distributed agent systems.</p>
-  <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
+<!-- Features Grid -->
+<section class="features" id="features">
+  <div class="features-inner">
+    <div class="features-header">
+      <span class="label">Architecture</span>
+      <h2>Why Athyr</h2>
+    </div>
+    <div class="features-grid">
+      {{ range .Site.Data.features }}
+      <article class="card" {{ with .accent_color }}style="--card-accent: {{ . }};"{{ end }}>
+        <div class="card-icon">{{ with .icon_svg }}{{ . | safeHTML }}{{ else }}{{ .icon }}{{ end }}</div>
+        {{ with .tag }}<span class="card-tag">{{ . }}</span>{{ end }}
+        <h3>{{ .title }}</h3>
+        <p>{{ .description }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </div>
 </section>
+
+<!-- Code Section -->
+<section class="code-section">
+  <div class="code-container">
+    <div class="section-header">
+      <h2>Quick Start</h2>
+      <p>Deploy the runtime in seconds across any architecture.</p>
+    </div>
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="code-block-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <span class="code-block-label">bash_session</span>
+      </div>
+      <pre><span class="keyword">curl</span> -sSL https://athyr.tech/install.sh | <span class="function">sh</span>
+
+<span class="comment"># Start the server</span>
+<span class="string">athyr</span> serve
+
+<span class="comment">// gRPC: localhost:9090</span>
+<span class="comment">// HTTP: localhost:8080</span>
+
+<span class="keyword">go get</span> github.com/athyr-tech/athyr-sdk-go</pre>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.features-header, .card, .code-section .section-header, .code-section .code-block, .footer-top, .footer-bottom').forEach(function(el) {
+    observer.observe(el);
+  });
+});
+</script>
 {{ end }}

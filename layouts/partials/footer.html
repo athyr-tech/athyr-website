@@ -1,9 +1,41 @@
 <footer class="footer">
-  <p>&copy; {{ now.Year }} Athyr</p>
-  <div class="footer-links">
-    <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://github.com/athyr-tech/athyr-sdk-go" target="_blank" rel="noopener">Go SDK</a>
-    <a href="https://github.com/athyr-tech/athyr-sdk-python" target="_blank" rel="noopener">Python SDK</a>
-    <a href="https://github.com/athyr-tech/athyr-agent" target="_blank" rel="noopener">Athyr Agent</a>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <svg viewBox="0 0 800 700" aria-hidden="true">
+            <g transform="translate(10 680)">
+              <path d="M0 0 L387 -670 L774 0 L343 -4 L344 -145 L521 -147 L393 -368 L182 0 Z" fill="#ffffff"/>
+            </g>
+          </svg>
+          <span>ATHYR</span>
+        </div>
+        <p>Autonomous orchestration for the next generation of distributed intelligence.</p>
+      </div>
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h4>SDKs</h4>
+          <a href="https://github.com/athyr-tech/athyr-sdk-go" target="_blank" rel="noopener">Go SDK</a>
+          <a href="https://github.com/athyr-tech/athyr-sdk-python" target="_blank" rel="noopener">Python SDK</a>
+        </div>
+        <div class="footer-col">
+          <h4>Runtime</h4>
+          <a href="https://github.com/athyr-tech/athyr" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/athyr-tech/athyr-agent" target="_blank" rel="noopener">Agent Registry</a>
+        </div>
+        <div class="footer-col">
+          <h4>Project</h4>
+          <a href="/docs/">Docs</a>
+          <a href="/blog/">Blog</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; {{ now.Year }} Athyr Tech</span>
+      <div class="footer-status">
+        <span>Status: <span class="status-dot">Operational</span></span>
+        <span>Region: Global/Edge</span>
+      </div>
+    </div>
   </div>
 </footer>
