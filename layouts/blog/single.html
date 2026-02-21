@@ -3,7 +3,7 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="blog-layout">
+<div class="blog-layout {{ if .TableOfContents }}blog-layout--with-toc{{ end }}">
   <article class="blog-post">
     <header class="blog-post-header">
       <a href="/blog/" class="blog-post-back">&larr; Blog</a>
@@ -30,5 +30,13 @@
       <a href="/blog/" class="blog-post-back">&larr; Back to all posts</a>
     </footer>
   </article>
+
+  {{ if .TableOfContents }}
+  <aside class="blog-toc">
+    <h4 class="blog-toc-title">On This Page</h4>
+    {{ .TableOfContents }}
+  </aside>
+  {{ end }}
 </div>
+<script src="/js/docs-toc.js"></script>
 {{ end }}

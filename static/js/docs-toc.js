@@ -1,9 +1,10 @@
 /**
- * Docs TOC scroll-spy
+ * TOC scroll-spy
  * Highlights the current section in the Table of Contents as the user scrolls.
+ * Works with both .docs-toc and .blog-toc containers.
  */
 (function () {
-  const toc = document.querySelector('.docs-toc');
+  const toc = document.querySelector('.docs-toc') || document.querySelector('.blog-toc');
   if (!toc) return;
 
   const links = toc.querySelectorAll('nav a');
