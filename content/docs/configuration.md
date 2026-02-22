@@ -105,7 +105,7 @@ List of LLM providers. Each backend has:
 | Field | Required | Description |
 |-------|----------|-------------|
 | `name` | Yes | Unique identifier |
-| `type` | Yes | Provider type: `ollama` or `openrouter` |
+| `type` | Yes | Provider type (matches Lua script filename, e.g. `ollama`, `openrouter`, or [custom](/docs/custom-providers/)) |
 | `url` | Yes | Provider API URL |
 | `api_key` | No | API key (required for OpenRouter) |
 | `priority` | No | Routing priority (lower = preferred) |

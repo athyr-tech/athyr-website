@@ -17,14 +17,20 @@ Without Athyr, each agent needs:
 
 The gateway centralizes this complexity. Agents just call `Complete()` with a model name.
 
-## Supported Providers
+## Providers
+
+Athyr uses Lua scripts to define LLM provider integrations. Each provider is a small Lua file that describes
+how to talk to an OpenAI-compatible API. Two providers ship built-in:
 
 | Provider   | Type         | Description                           |
 |------------|--------------|---------------------------------------|
 | Ollama     | `ollama`     | Local LLM inference                   |
 | OpenRouter | `openrouter` | Access to 100+ models via unified API |
 
-Both providers support streaming, tool calling, and all standard completion options.
+Both built-in providers support streaming, tool calling, and all standard completion options.
+
+You can add any OpenAI-compatible provider without recompiling Athyr — just drop a Lua script in your
+data directory. See [Custom Providers](/docs/custom-providers/) for the full guide.
 
 ## Configuration
 
@@ -52,7 +58,7 @@ llm:
 | Field      | Description                                  |
 |------------|----------------------------------------------|
 | `name`     | Unique identifier for this backend           |
-| `type`     | Provider type: `ollama` or `openrouter`      |
+| `type`     | Provider type (matches Lua script filename, e.g. `ollama`, `openrouter`, or a [custom provider](/docs/custom-providers/)) |
 | `url`      | Base URL for the provider API                |
 | `api_key`  | API key (supports `${ENV_VAR}` substitution) |
 | `priority` | Routing priority (lower = preferred)         |
@@ -187,6 +193,7 @@ fmt.Println(resp.Usage.TotalTokens)
 
 ## Next Steps
 
+- [Custom Providers](/docs/custom-providers/) - Add your own LLM providers via Lua scripts
 - [Agents](/docs/agents/) - Using LLM completions in agents
 - [State Management](/docs/state/) - Memory sessions for conversations
 - [Configuration](/docs/configuration/) - Full configuration reference
